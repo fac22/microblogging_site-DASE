@@ -4,20 +4,24 @@ const posts = require('./posts');
 
 const server = express();
 
+let html = '';
+
 server.get('/', (request, response) => {
   let items = '';
   // eslint-disable-next-line no-restricted-syntax
   for (const post of Object.values(posts)) {
     items += `<li>
+              <div class="center box">
                 <span>${post.name} : ${post.post}</span>
                 <form action="/delete-post" method="POST" style="display: inline;">
-                  <button name="name" value="${post.name}" aria-label="Delete ${post.name}">
+                  <button name="name" class="delete" value="${post.name}" aria-label="Delete ${post.name}">
                     &times;
                   </button>
                 </form>
+                </div>
               </li>`;
   }
-  const html = `
+  html = `
     <!doctype html>
     <html>
       <head>
@@ -62,9 +66,15 @@ const bodyParser = express.urlencoded({ extended: false });
 
 server.post('/add-post', bodyParser, (request, response) => {
   const newPost = request.body;
-  const name = newPost.name.toLowerCase();
-  posts[name] = newPost;
-  response.redirect('/');
+  if (newPost.post.length >= 50) {
+    html += '<span> That is way too long, no-one wants to read that </span>';
+
+    response.redirect('/errormsg');
+  } else {
+    const name = newPost.name.toLowerCase();
+    posts[name] = newPost;
+    response.redirect('/');
+  }
 });
 
 server.post('/delete-post', bodyParser, (request, response) => {
