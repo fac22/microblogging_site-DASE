@@ -1,6 +1,7 @@
 // const { it } = require("mocha");
 
 /* eslint-disable no-undef */
+
 it('launching localhost', () => {
   cy.visit('/');
 });
@@ -12,6 +13,7 @@ it('should have a title', () => {
 });
 
 it('should have a label tag', () => {
+
   cy.visit('/');
   cy.get('label').find('for');
 });
@@ -20,6 +22,7 @@ it('should have a textbox', () => {
   cy.visit('/');
   cy.get('form').find('input[name=text]');
 });
+
 
 // Functionality tests
 
@@ -50,3 +53,4 @@ it('rejects a thought that is too long', () => {
   cy.get('form').find('button').click();
   cy.url().should('include', 'error');
 });
+
