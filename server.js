@@ -1,7 +1,8 @@
-const express = require("express");
+const express = require('express');
+
 const server = express();
 
-const staticHandler = express.static("public");
+const staticHandler = express.static('public');
 server.use(staticHandler);
 
 const PORT = 3000;
