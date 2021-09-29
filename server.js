@@ -8,7 +8,14 @@ server.get('/', (request, response) => {
   let items = '';
   // eslint-disable-next-line no-restricted-syntax
   for (const post of Object.values(posts)) {
-    items += `<li>${post.name} : ${post.post}</li>`;
+    items += `<li>
+                <span>${post.name} : ${post.post}</span>
+                <form action="/delete-post" method="POST" style="display: inline;">
+                  <button name="name" value="${post.name}" aria-label="Delete ${post.name}">
+                    &times;
+                  </button>
+                </form>
+              </li>`;
   }
   const html = `
     <!doctype html>
@@ -60,8 +67,15 @@ server.post('/add-post', bodyParser, (request, response) => {
   response.redirect('/');
 });
 
+server.post('/delete-post', bodyParser, (request, response) => {
+  const postToDelete = request.body.name.toLowerCase();
+  delete posts[postToDelete];
+  response.redirect('/');
+});
+
 const staticHandler = express.static('public');
 server.use(staticHandler);
 
 const PORT = 3000;
+// eslint-disable-next-line no-console
 server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
