@@ -13,7 +13,6 @@ it('should have a title', () => {
 });
 
 it('should have a label tag', () => {
-
   cy.visit('/');
   cy.get('label').find('for');
 });
@@ -22,7 +21,6 @@ it('should have a textbox', () => {
   cy.visit('/');
   cy.get('form').find('input[name=text]');
 });
-
 
 // Functionality tests
 
@@ -49,8 +47,11 @@ it('can delete a submitted thought', () => {
 
 it('rejects a thought that is too long', () => {
   cy.visit('/');
-  cy.get('form').find('input[name=text]').type('I have never been able to put all of my thoughts into such a small text field and I do not intend to start now!');
+  cy.get('form')
+    .find('input[name=text]')
+    .type(
+      'I have never been able to put all of my thoughts into such a small text field and I do not intend to start now!'
+    );
   cy.get('form').find('button').click();
   cy.url().should('include', 'error');
 });
-
