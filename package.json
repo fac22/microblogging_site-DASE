@@ -1,0 +1,33 @@
+{
+  "name": "microblogging_site-DASE",
+  "version": "1.0.0",
+  "description": "Building a microblogging website.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "npx prettier --write .",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac22/microblogging_site-DASE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac22/microblogging_site-DASE/issues"
+  },
+  "homepage": "https://github.com/fac22/microblogging_site-DASE#readme",
+  "devDependencies": {
+    "cypress": "^8.5.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "nodemon": "^2.0.13",
+    "prettier": "2.4.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
