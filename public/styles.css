@@ -1,21 +1,21 @@
 @font-face {
-  font-family: "The-Outbox-St";
-  src: url("assets/The-Outbox-St.ttf.woff") format("woff"),
-    url("assets/The-Outbox-St.ttf.svg#The-Outbox-St") format("svg"),
-    url("assets/The-Outbox-St.ttf.eot"),
-    url("assets/The-Outbox-St.ttf.eot?#iefix") format("embedded-opentype");
+  font-family: 'The-Outbox-St';
+  src: url('assets/The-Outbox-St.ttf.woff') format('woff'),
+    url('assets/The-Outbox-St.ttf.svg#The-Outbox-St') format('svg'),
+    url('assets/The-Outbox-St.ttf.eot'),
+    url('assets/The-Outbox-St.ttf.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
 }
-@import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: "Arvo", serif;
-  background-image: url("assets/oriental-tiles.png");
+  font-family: 'Arvo', serif;
+  background-image: url('assets/oriental-tiles.png');
   background-color: darkblue;
 }
 header {
@@ -26,11 +26,11 @@ header {
   font-size: 1.7rem;
   display: flex;
   align-items: flex-end;
-  background-image: url("assets/memphis-mini-dark.png");
+  background-image: url('assets/memphis-mini-dark.png');
 }
 
 h2 {
-  font-family: "The-Outbox-St";
+  font-family: 'The-Outbox-St';
 
   color: #050f3e;
   font-size: 3rem;
@@ -41,7 +41,7 @@ h3 {
 
 label,
 fieldset {
-  font-family: "The-Outbox-St";
+  font-family: 'The-Outbox-St';
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
