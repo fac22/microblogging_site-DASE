@@ -4,7 +4,9 @@ const posts = require('./posts');
 
 const server = express();
 
-let html = '';
+const functions = require('./routes/functions');
+
+// let html = '';
 
 server.get('/', (request, response) => {
   let items = '';
@@ -21,7 +23,7 @@ server.get('/', (request, response) => {
                 </div>
               </li>`;
   }
-  html = `
+  const html = `
     <!doctype html>
     <html>
       <head>
@@ -62,19 +64,18 @@ server.get('/add-post', (request, response) => {
   response.send(html);
 });
 
+server.get('/error', functions.error);
+
 const bodyParser = express.urlencoded({ extended: false });
 
 server.post('/add-post', bodyParser, (request, response) => {
   const newPost = request.body;
-  if (newPost.post.length >= 50) {
-    html += '<span> That is way too long, no-one wants to read that </span>';
-
-    response.redirect('/errormsg');
-  } else {
-    const name = newPost.name.toLowerCase();
-    posts[name] = newPost;
-    response.redirect('/');
+  if (newPost.post.length > 50) {
+    response.redirect('/error');
   }
+  const name = newPost.name.toLowerCase();
+  posts[name] = newPost;
+  response.redirect('/');
 });
 
 server.post('/delete-post', bodyParser, (request, response) => {
