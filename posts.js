@@ -1,5 +1,3 @@
-let posts = {
-  alphonso: { name: 'Alphonso', post: 'German Shepherd' },
-};
+let posts = {};
 
 module.exports = posts;
