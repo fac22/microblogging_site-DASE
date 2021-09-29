@@ -39,26 +39,28 @@ it('submits a thought', () => {
 });
 
 it('can display a submitted thought', () => {
-  cy.visit('/');
-  cy.get('form').find('input[name=text]').type('I can see my post!');
+  cy.visit('/add-post');
+  cy.get('form').find('input[name=post]').type('I can see my post!');
   cy.get('form').find('button').click();
+  cy.visit('/');
   cy.get('div').contains('I can see my post!');
 });
 
 it('can delete a submitted thought', () => {
-  cy.visit('/');
-  cy.get('form').find('input[name=text]').type('I made a mistake!');
+  cy.visit('/add-post');
+  cy.get('form').find('input[name=post]').type('I made a mistake!');
   cy.get('form').find('button').click();
-  cy.get('div').find('button #delete').click();
+  cy.visit('/');
+  cy.get('div').find('.delete').click();
 });
 
 it('rejects a thought that is too long', () => {
-  cy.visit('/');
+  cy.visit('/add-post');
   cy.get('form')
-    .find('input[name=text]')
+    .find('input[name=post]')
     .type(
-      'I have never been able to put all of my thoughts into such a small text field and I do not intend to start now!'
+      'I have never been able to put all of my thoughts into such a small text field and I do not intend to start now!',
     );
   cy.get('form').find('button').click();
-  cy.url().should('include', 'error');
+  cy.url().should('include', '/error');
 });
