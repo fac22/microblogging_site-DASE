@@ -9,26 +9,33 @@ it('launching localhost', () => {
 // Accessibility tests
 
 it('should have a title', () => {
+  cy.visit('/');
+  cy.title().should('eq', 'Shortlr');
+});
+
+it('should have a title in the /add-post', () => {
+  cy.visit('/add-post');
   cy.title().should('eq', 'Shortlr');
 });
 
 it('should have a label tag', () => {
-  cy.visit('/');
-  cy.get('label').find('for');
+  cy.visit('/add-post');
+  cy.get('form').find('label[for=name]');
+  cy.get('form').find('label[for=post]');
 });
 
 it('should have a textbox', () => {
-  cy.visit('/');
-  cy.get('form').find('input[name=text]');
+  cy.visit('/add-post');
+  cy.get('form').find('input[name=post]');
 });
 
 // Functionality tests
 
 it('submits a thought', () => {
-  cy.visit('/');
-  cy.get('form').find('input[name=text]').type('This is a thought!');
+  cy.visit('/add-post');
+  cy.get('form').find('input[name=post]').type('This is a thought!');
   cy.get('form').find('button').click();
-  cy.url().should('include', '/form-submitted');
+  cy.url().should('include', '/');
 });
 
 it('can display a submitted thought', () => {

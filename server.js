@@ -22,7 +22,7 @@ server.get('/', (request, response) => {
     <html>
       <head>
         <meta charset="utf-8">
-        <title>Microblogging site!</title>
+        <title>Shortlr</title>
       </head>
       <body>
         <h1>Posts!</h1>
@@ -41,14 +41,14 @@ server.get('/add-post', (request, response) => {
       <html>
         <head>
           <meta charset="utf-8">
-          <title>Microblogging site!</title>
+          <title>Shortlr</title>
         </head>
         <body>
           <h1>Add your post</h1>
           <form method="POST">
-            <label id="name">Your name</label>
+            <label for="name">Your name</label>
             <input id="name" name="name">
-            <label id="post">Your post</label>
+            <label for="post">Your post</label>
             <input id="post" name="post">
             <button>Add</button>
           </form>
