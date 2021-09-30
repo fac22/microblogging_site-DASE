@@ -13,19 +13,19 @@ let id = 0;
 server.get('/', (request, response) => {
   let items = '';
   // eslint-disable-next-line no-restricted-syntax
-  for (const post of Object.values(posts)) {
+  for (const key of Object.keys(posts)) {
     items += `<li>
               <div class="center box">
-                <h2>${post.name} </h2>
-                <p> ${post.post}</p>
+                <h2>${posts[key].name} </h2>
+                <p> ${posts[key].post}</p>
                 <form action="/delete-post" method="POST"  class="delete">
-                  <button name="name" value="${post.name}" aria-label="Delete ${post.name}">
+                  <button name="delete" value='${key}' aria-label="Delete ${posts[key].post}">
                   🗑️ Delete
                   </button>
                 </form>
                 </div>
               </li>`;
-    console.log(post);
+    console.log(`the KEY is: ${key}`);
   }
   const html = `
   <!DOCTYPE html>
@@ -125,8 +125,9 @@ server.post('/add-post', bodyParser, (request, response) => {
 });
 
 server.post('/delete-post', bodyParser, (request, response) => {
-  const postToDelete = request.body.post;
-  console.log(postToDelete);
+  const postToDelete = request.body.delete;
+  // console.log(posts);
+  console.log(`delete function - ${postToDelete}`);
   delete posts[postToDelete];
   response.redirect('/');
 });
