@@ -90,18 +90,19 @@ server.get('/add-post', (request, response) => {
   response.send(html);
 });
 
-server.get('/error', functions.error);
+server.get('/add-post/error', functions.error);
 
 const bodyParser = express.urlencoded({ extended: false });
 
 server.post('/add-post', bodyParser, (request, response) => {
   const newPost = request.body;
   if (newPost.post.length > 50) {
-    response.redirect('/error');
+    response.redirect('/add-post/error');
+  } else {
+    const name = newPost.name.toLowerCase();
+    posts[name] = newPost;
+    response.redirect('/');
   }
-  const name = newPost.name.toLowerCase();
-  posts[name] = newPost;
-  response.redirect('/');
 });
 
 server.post('/delete-post', bodyParser, (request, response) => {
