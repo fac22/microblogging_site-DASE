@@ -7,7 +7,7 @@ Shortlr is a micro-microblogging website.
 
 
 ### Is this just twitter?
-280 characters is too many. Think small, like 50.
+280 characters is too many. Try 50.
 
 ### That's not a lot!
 I'm still getting my point across, no?
