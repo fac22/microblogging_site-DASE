@@ -1,6 +1,6 @@
-# microblogging_site-DASE
+# Shortlr
 
-## Shortlr
+## Think small thoughts.
 
 ### What is shortlr?
 Shortlr is a micro-microblogging website.
