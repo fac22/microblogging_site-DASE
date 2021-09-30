@@ -24,17 +24,29 @@ server.get('/', (request, response) => {
               </li>`;
   }
   const html = `
-    <!doctype html>
-    <html>
+  <!DOCTYPE html>
+  <html lang="en">
       <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="/styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap"
+          rel="stylesheet">
         <title>Shortlr</title>
       </head>
       <body>
+      <header>
         <h1>Posts!</h1>
+      </header> 
+      <main>
+      <div class="center box">
         <ul>${items}</ul>
         <a href="/add-post">Add your post +</a>
         </form>
+        </div>
+        </main>
       </body>
     </html>
     `;
@@ -43,14 +55,26 @@ server.get('/', (request, response) => {
 
 server.get('/add-post', (request, response) => {
   const html = `
-      <!doctype html>
-      <html>
-        <head>
-          <meta charset="utf-8">
-          <title>Shortlr</title>
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap"
+      rel="stylesheet">
+    <title>Shortlr</title>
         </head>
         <body>
+        <header>
           <h1>Add your post</h1>
+         </header>
+         <main>
+         <div class="center box"> 
           <form method="POST">
             <label for="name">Your name</label>
             <input id="name" name="name">
@@ -58,6 +82,8 @@ server.get('/add-post', (request, response) => {
             <input id="post" name="post">
             <button>Add</button>
           </form>
+          </div>
+          </main>
         </body>
       </html>
       `;
