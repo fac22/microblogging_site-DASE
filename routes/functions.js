@@ -15,7 +15,7 @@ function error(request, response) {
     </body>
   </html>
   `;
-  response.end(html);
+  response.send(html);
 }
 
 module.exports = { error };
