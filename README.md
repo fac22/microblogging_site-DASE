@@ -2,8 +2,8 @@
 
 ## Think small thoughts.
 
-### Q posted
-What is shortlr?
+>### Q posted
+>>What is shortlr?
 
 ### A posted
 Shortlr is a micro-microblogging website.
