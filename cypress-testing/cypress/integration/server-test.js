@@ -1,5 +1,3 @@
-// const { it } = require("mocha");
-
 /* eslint-disable no-undef */
 
 it('launching localhost', () => {
@@ -51,7 +49,7 @@ it('can delete a submitted thought', () => {
   cy.get('form').find('input[name=post]').type('I made a mistake!');
   cy.get('form').find('button').click();
   cy.visit('/');
-  cy.get('div').find('.delete').click();
+  cy.get('div').last().find('button').click();
 });
 
 it('rejects a thought that is too long', () => {
@@ -63,4 +61,16 @@ it('rejects a thought that is too long', () => {
     );
   cy.get('form').find('button').click();
   cy.url().should('include', '/error');
+});
+
+it('handle a second post with the same name', () => {
+  cy.visit('/add-post');
+  cy.get('form').find('input[name=name]').type('Sasha');
+  cy.get('form').find('input[name=post]').type('Hello!');
+  cy.get('form').find('button').click();
+
+  cy.visit('/add-post');
+  cy.get('form').find('input[name=name]').type('Sasha');
+  cy.get('form').find('input[name=post]').type('Hello again!');
+  cy.get('form').find('button').click();
 });
