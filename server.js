@@ -7,6 +7,8 @@ const server = express();
 const functions = require('./routes/functions');
 
 // let html = '';
+let idArr = [];
+let id = 0;
 
 server.get('/', (request, response) => {
   let items = '';
@@ -22,6 +24,7 @@ server.get('/', (request, response) => {
                 </form>
                 </div>
               </li>`;
+    console.log(post);
   }
   const html = `
     <!doctype html>
@@ -73,14 +76,22 @@ server.post('/add-post', bodyParser, (request, response) => {
   if (newPost.post.length > 50) {
     response.redirect('/add-post/error');
   } else {
-    const name = newPost.name.toLowerCase();
-    posts[name] = newPost;
+    idArr = Object.keys(posts);
+    console.log(posts);
+    console.log(idArr);
+    // eslint-disable-next-line radix
+    const idArrInt = idArr.map((el) => parseInt(el));
+    let bigId = idArrInt.reduce((acc, cur) => (acc > cur ? acc : cur), 0);
+
+    id = bigId + 1;
+    posts[id] = newPost;
     response.redirect('/');
   }
 });
 
 server.post('/delete-post', bodyParser, (request, response) => {
-  const postToDelete = request.body.name.toLowerCase();
+  const postToDelete = request.body.post;
+  console.log(postToDelete);
   delete posts[postToDelete];
   response.redirect('/');
 });
