@@ -20,6 +20,6 @@ server.post('/delete-post', bodyParser, deletePost.post);
 const staticHandler = express.static('public');
 server.use(staticHandler);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 // eslint-disable-next-line no-console
 server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
