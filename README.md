@@ -2,50 +2,50 @@
 
 ## Think small thoughts.
 
->### Q posted
+>### Q posted:
 >>What is shortlr?
 
 ***
 
->### A posted
+>### A posted:
 >>Shortlr is a micro-microblogging website.
 
 ***
 
->### Q posted
+>### Q posted:
 >>Is this just twitter?
 
 ***
 
->### A posted
+>### A posted:
 >>280 characters is too many. Try 50.
 
 ***
 
->### Q posted
+>### Q posted:
 >>That's not a lot!
 
 ***
 
->### A posted
+>### A posted:
 >>I'm still getting my point across, no?
 
 ***
 
->### Q posted
+>### Q posted:
 >>What if I have something important to say?
 
 ***
 
->### A posted
+>### A posted:
 >>You're online so that's unlikely.
 
 ***
 
->### Q posted
+>### Q posted:
 >>I think I'll stick to twitter, I've just got too m
 
 ***
 
->### A posted
+>### A posted:
 >>*50 characters, that's your limit*
