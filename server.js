@@ -14,10 +14,11 @@ server.get('/', (request, response) => {
   for (const post of Object.values(posts)) {
     items += `<li>
               <div class="center box">
-                <span>${post.name} : ${post.post}</span>
-                <form action="/delete-post" method="POST" style="display: inline;">
-                  <button name="name" class="delete" value="${post.name}" aria-label="Delete ${post.name}">
-                    &times;
+                <h2>${post.name} </h2>
+                <p> ${post.post}</p>
+                <form action="/delete-post" method="POST"  class="delete">
+                  <button name="name" value="${post.name}" aria-label="Delete ${post.name}">
+                  🗑️ Delete
                   </button>
                 </form>
                 </div>
@@ -34,6 +35,9 @@ server.get('/', (request, response) => {
         <link
           href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap"
           rel="stylesheet">
+        <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
         <title>Shortlr</title>
       </head>
       <body>
@@ -43,7 +47,9 @@ server.get('/', (request, response) => {
       <main>
       <div class="center box">
         <ul>${items}</ul>
+        <h2>
         <a href="/add-post">Add your post +</a>
+        </h2>
         </form>
         </div>
         </main>
@@ -67,6 +73,9 @@ server.get('/add-post', (request, response) => {
     <link
       href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap"
       rel="stylesheet">
+      <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
     <title>Shortlr</title>
         </head>
         <body>
@@ -76,9 +85,9 @@ server.get('/add-post', (request, response) => {
          <main>
          <div class="center box"> 
           <form method="POST">
-            <label for="name">Your name</label>
+            <label for="name"><h2>Your name</h2></label>
             <input id="name" name="name">
-            <label for="post">Your post</label>
+            <label for="post"><h2>Your post</h2> </label>
             <input id="post" name="post">
             <button>Add</button>
           </form>
