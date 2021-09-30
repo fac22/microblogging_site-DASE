@@ -59,7 +59,7 @@ it('rejects a thought that is too long', () => {
   cy.get('form')
     .find('input[name=post]')
     .type(
-      'I have never been able to put all of my thoughts into such a small text field and I do not intend to start now!',
+      'I have never been able to put all of my thoughts into such a small text field and I do not intend to start now!'
     );
   cy.get('form').find('button').click();
   cy.url().should('include', '/error');
