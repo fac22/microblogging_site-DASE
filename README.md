@@ -2,6 +2,12 @@
 
 ## Think small thoughts.
 
+### To view project
+- Clone this repo
+- Install dependencies using npm install (optional: to view tests)
+- Start the server with node server.js
+- Start posting
+
 > ### Q posted:
 >
 > > What is shortlr?
@@ -59,3 +65,5 @@
 > ### A posted:
 >
 > > _50 characters, that's your limit_
+
+
