@@ -4,7 +4,7 @@
 
 ### To view project
 - Clone this repo
-- Install dependencies using npm install (optional: to view tests)
+- Install dependencies using npm install
 - Start the server with node server.js
 - Start posting
 
