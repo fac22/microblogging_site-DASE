@@ -44,7 +44,7 @@ function post(request, response) {
 }
 
 function error(request, response) {
-  const html = html`
+  const html = /* html */ `
     <header>
       <h1>Submission error</h1>
     </header>

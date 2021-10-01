@@ -5,7 +5,7 @@ function get(request, response) {
   let items = '';
   // eslint-disable-next-line no-restricted-syntax
   for (const key of Object.keys(posts)) {
-    items += html`<li>
+    items += /* html */ `<li>
       <div class="center box">
         <h2>${posts[key].name || 'Anonymous'}</h2>
         <p>${posts[key].post}</p>
@@ -21,7 +21,7 @@ function get(request, response) {
       </div>
     </li>`;
   }
-  const body = html`
+  const body = /* html */ `
         <header>
           <h1>Posts!</h1>
         </header> 
