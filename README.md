@@ -2,6 +2,8 @@
 
 ## Think small thoughts.
 
+![site pic](https://github.com/fac22/microblogging_site-DASE/blob/main/public/assets/Screenshot%202021-10-01%20at%2011.54.28.png)
+
 ### To view project
 - Clone this repo
 - Install dependencies using npm install
