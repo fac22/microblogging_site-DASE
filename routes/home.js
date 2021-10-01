@@ -1,4 +1,5 @@
 const posts = require('../posts');
+const layout = require('../body');
 
 function get(request, response) {
   let items = '';
@@ -6,36 +7,20 @@ function get(request, response) {
   for (const key of Object.keys(posts)) {
     items += `<li>
                 <div class="center box">
-                  <h2>${posts[key].name} </h2>
+                  <h2>${posts[key].name || 'Anonymous'} </h2>
                   <p> ${posts[key].post}</p>
                   <form action="/delete-post" method="POST"  class="delete">
-                    <button name="delete" value='${key}' aria-label="Delete ${posts[key].post}">
+                    <button name="delete" value='${key}' aria-label="Delete ${
+      posts[key].post
+    }">
                     🗑️ Delete
                     </button>
                   </form>
                   </div>
                 </li>`;
   }
-  const html = `
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <meta name="description" content="microblogging project">
-          <link rel="stylesheet" href="/styles.css" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap"
-            rel="stylesheet">
-          <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-          <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-  
-          <title>Shortlr</title>
-        </head>
-        <body>
+  const body = `
+
         <header>
           <h1>Posts!</h1>
         </header> 
@@ -48,9 +33,8 @@ function get(request, response) {
           </form>
           </div>
           </main>
-        </body>
-      </html>
       `;
+  const html = layout.htmlpopulate('Shortly', body);
   response.send(html);
 }
 
