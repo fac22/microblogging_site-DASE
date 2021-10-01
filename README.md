@@ -20,6 +20,7 @@ npm run dev
 ### How to run tests
 
 ```
+cd cypress-testing
 npm run test
 ```
 
