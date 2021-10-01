@@ -44,15 +44,14 @@ function post(request, response) {
 }
 
 function error(request, response) {
-  const html = `
-
+  const html = html`
     <header>
       <h1>Submission error</h1>
     </header>
     <div class="banner">
-      <h2> That is way too long, no-one wants to read that </h2>
-      <h3> <a href="/add-post">I'll be better, take me back</a> </h3>
-      </div>
+      <h2>That is way too long, no-one wants to read that</h2>
+      <h3><a href="/add-post">I'll be better, take me back</a></h3>
+    </div>
   `;
   const page = layout.htmlpopulate('Error', html);
   response.send(page);

@@ -5,22 +5,23 @@ function get(request, response) {
   let items = '';
   // eslint-disable-next-line no-restricted-syntax
   for (const key of Object.keys(posts)) {
-    items += `<li>
-                <div class="center box">
-                  <h2>${posts[key].name || 'Anonymous'} </h2>
-                  <p> ${posts[key].post}</p>
-                  <form action="/delete-post" method="POST"  class="delete">
-                    <button name="delete" value='${key}' aria-label="Delete ${
-      posts[key].post
-    }">
-                    🗑️ Delete
-                    </button>
-                  </form>
-                  </div>
-                </li>`;
+    items += html`<li>
+      <div class="center box">
+        <h2>${posts[key].name || 'Anonymous'}</h2>
+        <p>${posts[key].post}</p>
+        <form action="/delete-post" method="POST" class="delete">
+          <button
+            name="delete"
+            value="${key}"
+            aria-label="Delete ${posts[key].post}"
+          >
+            🗑️ Delete
+          </button>
+        </form>
+      </div>
+    </li>`;
   }
-  const body = `
-
+  const body = html`
         <header>
           <h1>Posts!</h1>
         </header> 
