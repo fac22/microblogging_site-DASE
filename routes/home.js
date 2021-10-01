@@ -34,7 +34,7 @@ function get(request, response) {
           </div>
           </main>
       `;
-  const html = layout.htmlpopulate('Shortly', body);
+  const html = layout.htmlpopulate('Shortlr', body);
   response.send(html);
 }
 
