@@ -15,6 +15,7 @@ function get(request, response) {
           <input id="post" name="post" required/>
           <button>Add</button>
         </form>
+        <a href="/"> <h2> Take me back! <h2> </a>
       </div>
     </main>
   `;

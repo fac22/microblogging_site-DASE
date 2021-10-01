@@ -26,10 +26,10 @@ function get(request, response) {
         </header> 
         <main>
         <div class="center box">
+        <h2>
+        <a href="/add-post">Add your post +</a>
+        </h2>
           <ul>${items}</ul>
-          <h2>
-          <a href="/add-post">Add your post +</a>
-          </h2>
           </form>
           </div>
           </main>
