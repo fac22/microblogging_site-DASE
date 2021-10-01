@@ -10,6 +10,19 @@
 - Start the server with node server.js
 - Start posting
 
+### How to run
+
+```
+npm install
+npm run dev
+```
+
+### How to run tests
+
+```
+npm run test
+```
+
 > ### Q posted:
 >
 > > What is shortlr?
